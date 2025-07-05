@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>نظام كاشير المسالخ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- شاشة الترحيب -->
+  <div id="welcome" class="welcome">
+    مرحبا بكم في نظام إدارة الفواتير وسجلات المتعاملين بمسالخ منطقة الظفرة
+  </div>
+
+  <!-- شاشة تسجيل الدخول -->
+  <div id="login" class="login hidden">
+    <input type="text" id="username" placeholder="اسم المستخدم" />
+    <input type="password" id="password" placeholder="كلمة المرور" />
+    <button onclick="login()">دخول</button>
+    <button onclick="closeApp()">إلغاء</button>
+  </div>
+
+  <!-- الشاشة الرئيسية -->
+  <div id="main" class="main hidden">
+    <button onclick="showSettings()">الإعدادات</button>
+    <button onclick="showDataEntry()">إدخال البيانات</button>
+    <button onclick="showReport()">تقرير المتعاملين</button>
+  </div>
+
+  <!-- صفحة الإعدادات -->
+  <div id="settings" class="settings hidden">
+    <h3>صفحة الإعدادات (للمسؤول فقط)</h3>
+    <p>إضافة مستخدمين وتحديد الصلاحيات هنا لاحقًا.</p>
+    <button onclick="backToMain()">رجوع</button>
+  </div>
+
+  <!-- صفحة إدخال البيانات -->
+  <div id="data-entry" class="data-entry hidden">
+    <h3>إدخال البيانات</h3>
+
+    <label>اختيار الموقع:</label>
+    <select id="site">
+      <option>مسلخ مدينة غياثي</option>
+    </select>
+
+    <label>رقم الفاتورة:</label>
+    <input type="text" id="invoice-number" readonly />
+
+    <label>اسم المتعامل:</label>
+    <input type="text" id="customer-name" />
+
+    <label>رقم التليفون:</label>
+    <input type="text" id="customer-phone" />
+
+    <label>نوع الذبيحة:</label>
+    <select id="animal-type">
+      <option>خروف</option>
+      <option>ماعز</option>
+      <option>بقر</option>
+      <option>جمل</option>
+    </select>
+
+    <label>نوع التقطيع:</label>
+    <select id="cut-type">
+      <option>عزيمة</option>
+      <option>ثلاجة</option>
+    </select>
+
+    <button onclick="addCustomer()">إضافة</button>
+    <button onclick="backToMain()">القائمة الرئيسية</button>
+  </div>
+
+  <!-- صفحة تقرير المتعاملين -->
+  <div id="report" class="report hidden">
+    <h3>تقرير المتعاملين</h3>
+    <table id="report-table">
+      <tr>
+        <th>رقم الفاتورة</th>
+        <th>اسم المتعامل</th>
+        <th>رقم التليفون</th>
+        <th>نوع الذبيحة</th>
+        <th>نوع التقطيع</th>
+      </tr>
+    </table>
+    <button onclick="backToMain()">رجوع</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
